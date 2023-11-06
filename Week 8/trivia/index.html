@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+                document.addEventListener('DOMContentLoaded', function(){
+            // Only runs when the DOM is loaded
+                    const buttons = document.querySelectorAll('button[id^="button"]');
+                    buttons.forEach((button, index) => {
+                        button.addEventListener('click', function() {
+                            checkMultipleChoiceAnswer(index + 1); // Index + 1 corresponds to the answer number
+                        });
+                    });
+
+            // all the id's of buttons of document, then for each button, when clicked, check if the index is 2 (righ answer)
+            // we define a function to check if the answer is the right one
+
+                    function checkMultipleChoiceAnswer(selectedAnswer) {
+                        const correctAnswer = 2; // Replace with the correct answer number
+                        const element = document.getElementById("feedback");
+
+                        if (selectedAnswer === correctAnswer) {
+                            element.innerHTML = "Correct";
+                        } else {
+                            element.innerHTML = "Incorrect";
+                        }
+                    }
+            // check if when clicked in the button 6, the answer is the right one
+
+                    document.querySelector('#button6').addEventListener('click', function() {
+                        const inputValue = document.getElementById('answer').value;
+                        const element = document.getElementById("feedback2");
+
+                        if (inputValue.trim() === "Portugal") {
+                            element.innerHTML = "Correct";
+                        }
+                        
+                        else if (inputValue.trim() !== "Portugal" && inputValue.trim() !== "") {
+                            element.innerHTML = "Incorrect";
+                        }
+                    });
+
+                    document.querySelector('#answer').addEventListener('change', function() {
+                        const inputValue = document.getElementById('answer').value;
+                        const element = document.getElementById("feedback2");
+                        if (inputValue.trim() === ""){
+                                element.innerHTML = "";
+                            }
+                        });
+                });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the approximate ratio of people to sheep in New Zeland?</h3>
+                <div>
+                    <button id="button1">6 people per 1 sheep</button>
+                    <button id="button2">3 people per 1 sheep</button>
+                    <button id="button3">1 person per 1 sheep</button>
+                    <button id="button4">1 person per 3 sheep</button>
+                    <button id="button5">1 person per 6 sheep</button>
+                </div>
+                <p id="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>In which country is illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <div>
+                    <input id="answer" autocomplete="off" name="q" type="search">
+                    <button id="button6">Check answer</button>
+                </div>
+                <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+</html>

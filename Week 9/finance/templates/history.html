@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Type</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction["type"] }}</td>
+            <td>{{ transaction["symbol"] }}</td>
+            <td>{{ transaction["price"] }}</td>
+            <td>{{ transaction["quantity"] }}</td>
+            <td>{{ transaction["date"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Symbol</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        {% for row in portfolios %}
+        <tr>
+            <td>{{ row["symbol"] }}</td>
+            <td>{{ row["quantity"] }}</td>
+            <td>{{ row["price"] }}</td>
+            <td>{{ row["value"] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="footer-cell">Cash</td>
+            <td class="footer-cell">{{ cash }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="footer-cell">Total</td>
+            <td class="footer-cell">{{ total }}</td>
+        </tr>
+    </table>
+{% endblock %}

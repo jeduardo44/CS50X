@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select id="symbol" name="symbol">
+                <option value="" disabled selected>Select a share</option>
+                {% for row in options %}
+                    <option value="{{ row}}">{{ row }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

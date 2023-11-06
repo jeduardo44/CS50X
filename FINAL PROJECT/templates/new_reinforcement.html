@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <form action="/new_reinforcement", method="post">
+        <div class="mb-3">
+            <select class="custom-dropdown mx-auto w-auto" id="goal" name="goal">
+                <option value="" disabled selected>Select a goal</option>
+                {% for row in goals %}
+                    <option value="{{ row['description'] }}">{{ row['description'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="value" name="value" placeholder="Amount to reinforce" type="number">
+        </div>
+        <div class="mb-3">
+            <select class="custom-dropdown mx-auto w-auto" id="month" name="month">
+                <option value="" disabled selected>Select a month</option>
+                {% for row in months %}
+                    <option value="{{ row }}">{{ row }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit a reinforcement</button>
+    </form>
+{% endblock %}

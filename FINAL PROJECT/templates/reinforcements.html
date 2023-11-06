@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <th>Goal</th>
+            <th>Investment</th>
+            <th>Month</th>
+            <th>Type</th>
+        </tr>
+        {% for row in reinforcements %}
+        <tr>
+            <td>{{ row["goal"] }}</td>
+            <td>{{ row["value"] }}</td>
+            <td>{{ row["month"] }}</td>
+            <td>{{ row["type"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div></div>
+        <form action="/reinforcement" method="post">
+            <div class="mb-3">
+                <select id="month" name="month">
+                    <option value="All">All months</option>
+                    {% for row in months %}
+                        <option value="{{ row }}">{{ row }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
+{% endblock %}

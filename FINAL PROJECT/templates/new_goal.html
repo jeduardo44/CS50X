@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <form action="/new_goal", method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="goal" name="goal" placeholder="Introduce your goal" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="type" name="type" placeholder="Type" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="value" name="value" placeholder="Value needed" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Regist a new goal</button>
+    </form>
+{% endblock %}

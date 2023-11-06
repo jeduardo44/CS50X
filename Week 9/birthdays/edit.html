@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Edit</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Edit birthday</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+               <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+               <h2>Edit Birthday Details</h2>
+               <form action="/update/{{ birthday.id }}" method="post">
+                   <input autocomplete="off" autofocus name="name" placeholder="Name" type="text" value="{{ birthday.name }}">
+                   <input autocomplete="off" name="day" placeholder="Day" type="number" value="{{ birthday.day }}">
+                   <input autocomplete="off" name="month" placeholder="Month" type="number" value="{{ birthday.month }}">
+                   <button type="submit">Update Birthday</button>
+               </form>
+            </div>
+        </div>
+    </body>
+</html>
